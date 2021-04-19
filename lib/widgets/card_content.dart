@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:bmi_calculator/utils/constants.dart';
 
-const cardSubtitleStyle = TextStyle(
-    fontSize: 18.0,
-    color: Color(0xFF8D8E98));
 
 class CardContent extends StatelessWidget {
   CardContent({@required this.cardIcon, @required this.cardSubtitle});
@@ -22,7 +20,7 @@ class CardContent extends StatelessWidget {
         SizedBox(
             height: 15.0
         ),
-        Text(cardSubtitle, style: cardSubtitleStyle),
+        Text(cardSubtitle, style: kCardSubtitleStyle),
       ],
     );
   }
