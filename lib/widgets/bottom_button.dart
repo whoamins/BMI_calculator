@@ -28,7 +28,7 @@ class BottomButton extends StatelessWidget {
                 buttonTitle,
                 textStyle: kColorizeTextStyle,
                 colors: kColorizeColors,
-                speed: Duration(milliseconds: 1000),
+                speed: Duration(milliseconds: 700),
               ),
             ],
             isRepeatingAnimation: true,
