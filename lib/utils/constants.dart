@@ -6,6 +6,7 @@ const kBottomContainerColor = Color(0xFFEB1555);
 const kCardNumberStyle = TextStyle(fontSize: 50.0, fontWeight: FontWeight.w900);
 
 // AppBar constants
+const kAppBarTextStyle = TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold);
 const kAppBarBackgroundColor = Color(0xFF111328);
 
 // Small card constants

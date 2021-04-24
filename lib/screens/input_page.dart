@@ -9,7 +9,6 @@ import 'package:bmi_calculator/utils/constants.dart';
 import 'package:bmi_calculator/widgets/round_button.dart';
 import 'package:bmi_calculator/calculate_bmi.dart';
 
-
 enum Gender {
   male,
   female,
@@ -32,7 +31,10 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('BMI CALCULATOR'),
+          title: Text(
+            'BMI CALCULATOR',
+            style: kAppBarTextStyle,
+          ),
           backgroundColor: kAppBarBackgroundColor,
           centerTitle: true,
         ),
@@ -41,182 +43,178 @@ class _InputPageState extends State<InputPage> {
           children: <Widget>[
             Expanded(
                 child: Row(
-                  children: <Widget>[
-                    Expanded(
-                        child: MainCard(
-                          onPress: () {
-                            setState(() {
-                              selectedGender = Gender.male;
-                            });
-                          },
-                          color: selectedGender == Gender.male
-                              ? kActiveCardColor
-                              : kInactiveCardColor,
-                          cardChild: CardContent(
-                            cardIcon: FontAwesomeIcons.mars,
-                            cardSubtitle: 'MALE',
-                          ),
-                        )),
-                    Expanded(
-                        child: MainCard(
-                          onPress: () {
-                            setState(() {
-                              selectedGender = Gender.female;
-                            });
-                          },
-                          color: selectedGender == Gender.female
-                              ? kActiveCardColor
-                              : kInactiveCardColor,
-                          cardChild: CardContent(
-                            cardIcon: FontAwesomeIcons.venus,
-                            cardSubtitle: 'FEMALE',
-                          ),
-                        ))
-                  ],
+              children: <Widget>[
+                Expanded(
+                    child: MainCard(
+                  onPress: () {
+                    setState(() {
+                      selectedGender = Gender.male;
+                    });
+                  },
+                  color: selectedGender == Gender.male
+                      ? kActiveCardColor
+                      : kInactiveCardColor,
+                  cardChild: CardContent(
+                    cardIcon: FontAwesomeIcons.mars,
+                    cardSubtitle: 'MALE',
+                  ),
                 )),
+                Expanded(
+                    child: MainCard(
+                  onPress: () {
+                    setState(() {
+                      selectedGender = Gender.female;
+                    });
+                  },
+                  color: selectedGender == Gender.female
+                      ? kActiveCardColor
+                      : kInactiveCardColor,
+                  cardChild: CardContent(
+                    cardIcon: FontAwesomeIcons.venus,
+                    cardSubtitle: 'FEMALE',
+                  ),
+                ))
+              ],
+            )),
             Expanded(
                 child: MainCard(
-                  color: kInactiveCardColor,
-                  cardChild: Column(
+              color: kInactiveCardColor,
+              cardChild: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'HEIGHT',
+                    style: kCardSubtitleStyle,
+                  ),
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
                     children: <Widget>[
                       Text(
-                        'HEIGHT',
+                        height.toString(),
+                        style: kCardNumberStyle,
+                      ),
+                      Text(
+                        'cm',
                         style: kCardSubtitleStyle,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.baseline,
-                        textBaseline: TextBaseline.alphabetic,
-                        children: <Widget>[
-                          Text(
-                            height.toString(),
-                            style: kCardNumberStyle,
-                          ),
-                          Text(
-                            'cm',
-                            style: kCardSubtitleStyle,
-                          ),
-                        ],
-                      ),
-                      SliderTheme(
-                        data: SliderTheme.of(context).copyWith(
-                          inactiveTrackColor: kSliderInactiveColor,
-                          activeTrackColor: kSliderActiveColor,
-                          thumbColor: kSliderThumbColor,
-                          overlayColor: kSliderOverlayColor,
-                          thumbShape:
-                          RoundSliderThumbShape(enabledThumbRadius: 15.0),
-                          overlayShape:
-                          RoundSliderOverlayShape(overlayRadius: 30.0),
-                        ),
-                        child: Slider(
-                          value: height.toDouble(),
-                          min: 120.0,
-                          max: 230.0,
-                          onChanged: (double newValue) {
-                            setState(() {
-                              height = newValue.round();
-                            });
-                          },
-                        ),
                       ),
                     ],
                   ),
-                )),
+                  SliderTheme(
+                    data: SliderTheme.of(context).copyWith(
+                      inactiveTrackColor: kSliderInactiveColor,
+                      activeTrackColor: kSliderActiveColor,
+                      thumbColor: kSliderThumbColor,
+                      overlayColor: kSliderOverlayColor,
+                      thumbShape:
+                          RoundSliderThumbShape(enabledThumbRadius: 15.0),
+                      overlayShape:
+                          RoundSliderOverlayShape(overlayRadius: 30.0),
+                    ),
+                    child: Slider(
+                      value: height.toDouble(),
+                      min: 120.0,
+                      max: 230.0,
+                      onChanged: (double newValue) {
+                        setState(() {
+                          height = newValue.round();
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            )),
             Expanded(
                 child: Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: MainCard(
-                        color: kInactiveCardColor,
-                        cardChild: Column(
+              children: <Widget>[
+                Expanded(
+                  child: MainCard(
+                    color: kInactiveCardColor,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'WEIGHT',
+                          style: kCardSubtitleStyle,
+                        ),
+                        Text(
+                          weight.toString(),
+                          style: kCardNumberStyle,
+                        ),
+                        Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Text(
-                              'WEIGHT',
-                              style: kCardSubtitleStyle,
+                            RoundButton(
+                              icon: FontAwesomeIcons.minus,
+                              onPressed: () {
+                                setState(() {
+                                  weight--;
+                                });
+                              },
                             ),
-                            Text(
-                              weight.toString(),
-                              style: kCardNumberStyle,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                RoundButton(
-                                  icon: FontAwesomeIcons.minus,
-                                  onPressed: () {
-                                    setState(() {
-                                      weight--;
-                                    });
-                                  },
-                                ),
-                                SizedBox(width: 10.0),
-                                RoundButton(
-                                  icon: FontAwesomeIcons.plus,
-                                  onPressed: () {
-                                    setState(() {
-                                      weight++;
-                                    });
-                                  },
-                                ),
-                              ],
+                            SizedBox(width: 10.0),
+                            RoundButton(
+                              icon: FontAwesomeIcons.plus,
+                              onPressed: () {
+                                setState(() {
+                                  weight++;
+                                });
+                              },
                             ),
                           ],
                         ),
-                      ),
+                      ],
                     ),
-                    Expanded(
-                      child: MainCard(
-                        color: kInactiveCardColor,
-                        cardChild: Column(
+                  ),
+                ),
+                Expanded(
+                  child: MainCard(
+                    color: kInactiveCardColor,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'Age',
+                          style: kCardSubtitleStyle,
+                        ),
+                        Text(
+                          age.toString(),
+                          style: kCardNumberStyle,
+                        ),
+                        Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Text(
-                              'Age',
-                              style: kCardSubtitleStyle,
+                            RoundButton(
+                              icon: FontAwesomeIcons.minus,
+                              onPressed: () {
+                                setState(() {
+                                  age--;
+                                });
+                              },
                             ),
-                            Text(
-                              age.toString(),
-                              style: kCardNumberStyle,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                RoundButton(
-                                  icon: FontAwesomeIcons.minus,
-                                  onPressed: () {
-                                    setState(() {
-                                      age--;
-                                    });
-                                  },
-                                ),
-                                SizedBox(width: 10.0),
-                                RoundButton(
-                                  icon: FontAwesomeIcons.plus,
-                                  onPressed: () {
-                                    setState(() {
-                                      age++;
-                                    });
-                                  },
-                                )
-                              ],
+                            SizedBox(width: 10.0),
+                            RoundButton(
+                              icon: FontAwesomeIcons.plus,
+                              onPressed: () {
+                                setState(() {
+                                  age++;
+                                });
+                              },
                             )
                           ],
-                        ),
-                      ),
+                        )
+                      ],
                     ),
-                  ],
-                )),
+                  ),
+                ),
+              ],
+            )),
             BottomButton(
               buttonTitle: 'CALCULATE',
-
               onTap: () {
-                Calculate calc = Calculate(
-                    height: height,
-                    weight: weight
-                );
+                Calculate calc = Calculate(height: height, weight: weight);
 
                 Navigator.push(
                   context,
@@ -231,7 +229,6 @@ class _InputPageState extends State<InputPage> {
               },
             ),
           ],
-        )
-    );
+        ));
   }
 }
