@@ -4,10 +4,11 @@ import 'package:bmi_calculator/widgets/main_card.dart';
 import 'package:flutter/material.dart';
 
 class ResultsPage extends StatelessWidget {
-  ResultsPage(
-      {@required this.bmiResult,
-      @required this.resultText,
-      @required this.interpretation});
+  ResultsPage({
+    @required this.bmiResult,
+    @required this.resultText,
+    @required this.interpretation,
+  });
 
   final String bmiResult;
   final String resultText;
@@ -38,7 +39,7 @@ class ResultsPage extends StatelessWidget {
           Expanded(
             flex: 5,
             child: Padding(
-              padding: EdgeInsets.all(5.0),
+              padding: EdgeInsets.all(1.0),
               child: MainCard(
                 color: kActiveCardColor,
                 cardChild: Column(
@@ -49,6 +50,7 @@ class ResultsPage extends StatelessWidget {
                       resultText.toUpperCase(),
                       style: kResultTextStyle,
                     ),
+                    Icon (Icons.accessibility),
                     Text(
                       bmiResult,
                       style: kBMITextStyle,

@@ -1,9 +1,4 @@
-import 'dart:async';
-import 'dart:io';
-
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:bmi_calculator/main.dart';
-import 'package:bmi_calculator/screens/input_page.dart';
 import 'package:bmi_calculator/utils/constants.dart';
 import 'package:flutter/material.dart';
 
