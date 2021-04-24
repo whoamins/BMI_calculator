@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:bmi_calculator/main.dart';
 import 'package:bmi_calculator/screens/input_page.dart';
 import 'package:bmi_calculator/utils/constants.dart';
@@ -21,14 +22,20 @@ class BottomButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         child: Center(
-          child: Text(
-            buttonTitle,
-            style: kBottomButtonTextStyle,
+          child: AnimatedTextKit(
+            animatedTexts: [
+              ColorizeAnimatedText(
+                buttonTitle,
+                textStyle: kColorizeTextStyle,
+                colors: kColorizeColors,
+                speed: Duration(milliseconds: 1000),
+              ),
+            ],
+            isRepeatingAnimation: true,
           ),
         ),
         color: kBottomContainerColor,
         margin: EdgeInsets.only(top: 10.0),
-        padding: EdgeInsets.only(bottom: 15.0),
         width: double.infinity / 2,
         height: kBottomContainerHeight,
       ),

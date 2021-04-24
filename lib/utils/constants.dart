@@ -29,7 +29,18 @@ const kBottomButtonTextStyle = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
+const kColorizeColors = [
+  Color(0xFFFFFFFF),
+  Color(0xFFAEB2B8),
+  Color(0xFF77797D),
+  Color(0xFF1E1E1F),
+];
 
+const kColorizeTextStyle = TextStyle(
+  fontSize: 40.0,
+  fontWeight: FontWeight.bold,
+  fontFamily: 'Horizon',
+);
 
 // Result Page constants
 const kTitleTextStyle = TextStyle(
