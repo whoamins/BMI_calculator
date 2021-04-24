@@ -18,12 +18,13 @@ class BottomButton extends StatelessWidget {
       child: Container(
         child: Center(
           child: AnimatedTextKit(
+            onTap: onTap,
             animatedTexts: [
               ColorizeAnimatedText(
                 buttonTitle,
                 textStyle: kColorizeTextStyle,
                 colors: kColorizeColors,
-                speed: Duration(milliseconds: 700),
+                speed: Duration(milliseconds: 1000),
               ),
             ],
             isRepeatingAnimation: true,
@@ -31,7 +32,7 @@ class BottomButton extends StatelessWidget {
         ),
         color: kBottomContainerColor,
         margin: EdgeInsets.only(top: 10.0),
-        width: double.infinity / 2,
+        width: double.infinity,
         height: kBottomContainerHeight,
       ),
     );
