@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
 // Common interface constants
 const kBottomContainerColor = Color(0xFFEB1555);
 const kCardNumberStyle = TextStyle(fontSize: 50.0, fontWeight: FontWeight.w900);
+
+// AppBar constants
+const kAppBarBackgroundColor = Color(0xFF111328);
 
 // Small card constants
 const kCardSubtitleStyle = TextStyle(fontSize: 18.0, color: Color(0xFF8D8E98));

@@ -1,11 +1,12 @@
+import 'dart:async';
+import 'dart:io';
+
 import 'package:bmi_calculator/main.dart';
 import 'package:bmi_calculator/screens/input_page.dart';
 import 'package:bmi_calculator/utils/constants.dart';
 import 'package:flutter/material.dart';
 
-
 class BottomButton extends StatelessWidget {
-
   BottomButton({
     @required this.onTap,
     @required this.buttonTitle,
@@ -14,14 +15,9 @@ class BottomButton extends StatelessWidget {
   final Function onTap;
   final String buttonTitle;
 
-  void _resetValue(DragEndDetails details) {
-
-  }
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onHorizontalDragEnd: (DragEndDetails details) => _resetValue(details),
       onTap: onTap,
       child: Container(
         child: Center(

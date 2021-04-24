@@ -31,6 +31,11 @@ class _InputPageState extends State<InputPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: Text('BMI CALCULATOR'),
+          backgroundColor: kAppBarBackgroundColor,
+          centerTitle: true,
+        ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
@@ -206,9 +211,8 @@ class _InputPageState extends State<InputPage> {
                 )),
             BottomButton(
               buttonTitle: 'CALCULATE',
+
               onTap: () {
-
-
                 Calculate calc = Calculate(
                     height: height,
                     weight: weight
