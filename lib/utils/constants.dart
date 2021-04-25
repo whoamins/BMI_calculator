@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+// Main Theme constants
+const kThemePrimaryColor = Color(0xFF0A0E21);
+const kThemeScaffoldBackgroundColor = Color(0xFF0A0E21);
+
 // Common interface constants
 const kBottomContainerColor = Color(0xFFEB1555);
 const kCardNumberStyle = TextStyle(fontSize: 50.0, fontWeight: FontWeight.w900);
