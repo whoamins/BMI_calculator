@@ -9,6 +9,7 @@ import 'package:bmi_calculator/utils/constants.dart';
 import 'package:bmi_calculator/widgets/round_button.dart';
 import 'package:bmi_calculator/calculate_bmi.dart';
 
+
 enum Gender {
   male,
   female,
@@ -27,6 +28,20 @@ class _InputPageState extends State<InputPage> {
   int weight = 70;
   int age = 20;
 
+  var refreshKey = GlobalKey<RefreshIndicatorState>();
+
+  Future<Null> refresh() async {
+    refreshKey.currentState?.show(atTop: false);
+
+    setState(() {
+      height = 175;
+      weight = 70;
+      age = 20;
+    });
+
+    return null;
+  } 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,6 +51,11 @@ class _InputPageState extends State<InputPage> {
             style: kAppBarTextStyle,
           ),
           backgroundColor: kAppBarBackgroundColor,
+          automaticallyImplyLeading: false,
+          leading: InkWell(
+            onTap: refresh,
+            child: Icon(Icons.refresh_rounded),
+          ),
           centerTitle: true,
         ),
         body: Column(
